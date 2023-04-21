@@ -102,7 +102,7 @@ boolean하나뿐 false와 ture로 저장 가능
 |form feed|\f|
 |new line|	\n|
 |carriage return|	\r|
-| \ | "\\\\" |
+| \ | \\\\ |
 |'|\\'|
 |"|\\"|
 |유니코드 문자|\u유니코드|
