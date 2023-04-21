@@ -71,10 +71,10 @@ for(초기화;조건시;증감식;){
 		}
 	 }
 ```
-3. 향상된 for문
-for(타입 변수명 : 배열 또는 컬렉션){
-	반복내용
-	}
+3. 향상된 for문   
+for(타입 변수명 : 배열 또는 컬렉션){     
+	반복내용   
+	}   
 ```
 for(int i=0;i<arr.length; i++){
 		System.out.println(arr[i]);
