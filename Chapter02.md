@@ -109,6 +109,7 @@ boolean하나뿐 false와 ture로 저장 가능
 
 ### 3_정수형
 |번호|자료형|크기|
+|---|---|---|
 |1| byte|1byte|
 |2| short|2byte|
 |3| int|4byte|
