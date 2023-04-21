@@ -113,7 +113,7 @@ boolean하나뿐 false와 ture로 저장 가능
 |1| byte|1byte|
 |2| short|2byte|
 |3| int|4byte|
-|4| long|8byte|
+|4| long|8byte|   
 byte부터 2배씩 크기가 증가한다.
 * 기본자료형은 int이다.   
 
