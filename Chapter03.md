@@ -77,6 +77,6 @@ int보다 작은 타입이면 int로 변환함
 ### 1_논리 연산자 
 |연산자|기능|
 |---|---|
-|\||\ |어느한쪽이 true면 true|
+|\|\| |어느한쪽이 true면 true|
 |&&|모두 true면 true|
 |!|논리 부정 연산자 true를 false로 false를 true로|
