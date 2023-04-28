@@ -35,3 +35,21 @@ int[] a = new int[]{10,20,30,40,50};
 ---
 4.배열의 복사
 ---
+### 1. for문을 이용한 배열의 복사
+```
+int[] arr = new int[5];
+	int[] tmp = new int[arr.length*2];
+	
+	for(int i = 0; i < arr.length;i++){
+		tmp[i] = arr[i]; //arr[i]의 값을 tmp[i] 에저장
+	}
+	arr = tmp;
+```
+세로운 배열로 저장 된다.
+
+### 2.  System.arraycopy()를 이용한 복사
+```
+System.arraycopy(num,0,newNum,0,num.length);
+```
+num[0]에서 newNum[0]으로 num.length개의 데이터를 복사   
+for문을 사용하는것보다 효율적이다.
