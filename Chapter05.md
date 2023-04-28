@@ -58,3 +58,14 @@ for문을 사용하는것보다 효율적이다.
 ===
 ## 1.배열생성
 ``` String[] name = new String[3]; ```
+3개의 문자열을 담을 수 있는 배열 생성
+
+|자료형|기본값|
+|---|---|
+|boolean|false|
+|char|'\u0000'|
+|byte,short,int|0|
+|long|0L|
+|float|0.0f|
+|double|0.0d 또는 0.0|
+|참조형 변수|null|
