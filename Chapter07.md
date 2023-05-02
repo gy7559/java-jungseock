@@ -32,15 +32,23 @@ class Circle{
 3.클래스간의 관계 설정하기
 ---
 상송관계를 맺을 것인지 포함관게를 맺을 것인지 설정할때의 차이
+### 포함관계
 ```
 class Circle{
     Point c = new Point();
     int r;
 }
 ```
+### 상속관계
 ```
 class Circle extends Point{
     int r;
 }
 ```
+
+상속의 경우 원의 점을 Point로 지정하여 준것이지만(점이 point 이다.)   
+포함의 경우 원의 점중 하나를 point로 할수있게 만든것이다.(point를 가지고 있다.)   
+
+
+
 
