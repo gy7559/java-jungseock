@@ -67,3 +67,35 @@ class Circle extends Point{
 2.오버라이딩
 ----
 ### 1.오버라이딩
+    조상클래스로부터 상속받은 메서드의 내용을 변경하는 것을 오버라이딩 이라고 한다.   
+    
+```
+class Point{
+    int x;
+    int y;
+    
+    String getLocation(){
+        return "x:"+x+"y:"+y;
+    }
+}
+
+class Point3D extends Point{
+    int z;
+    
+    String getLocation(){ //오버라이딩
+        return"x :"+x+", y :"+y+", z :"+z;
+    }
+```
+
+
+### 2.조건
+    자손 클래스에서 오버라이딩하는 메서드는 조상 클래스의 메서드와
+        - 이름이 같아야한다.
+        - 매개변수가 같아야한다.
+        - 반환타입이 같아야 한다.   
+#### 1. 접근 제어자는 조상 클래스의 메서드보다 좁은 범위로 변경할 수 없다.
+    - 보통 같은 접근제어자를 사용하지만 protected이면 protected혹은 public 이여야 한다.
+    - 넓은 순에서 좁은순 : public, protected,(default),private
+#### 2. 조상 클래스의 메서드보다 많은 수의 예외를 선언할 수 없다.
+    -Exception의 경우 모든 예외의 최고 조상이므로 가장많은 갯수의 예외선언이기때문 오버라이딩에 사용될수없다.
+#### 3. 인스턴스메서드를 static메서드로 또는 그 반대로변경할 수 없다.
