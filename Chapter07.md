@@ -140,9 +140,9 @@ package 패키지명;
 
 ### 4. import문의 선언
 소스파일의 구성   
-    1. package문
-    2. import문
-    3. 클래스 선언   
+    1. package문      
+    2. import문      
+    3. 클래스 선언      
    
 import문의 선언 방법   
     ```
