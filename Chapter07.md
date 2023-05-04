@@ -21,7 +21,7 @@
    
 Circle이라는 클래스에서 int x,y 를 지정하고 반지름 r을 설정할때
 Point 클래스에서 int x,y 를 멤버변수로 선언하여 포함 시킬수 있다.
-```
+```java
 class Circle{
     Point c = new Point();
     int r;
