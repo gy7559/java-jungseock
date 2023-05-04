@@ -169,4 +169,22 @@ System.out.println(Math.random());
 ->
 out.println(random());
 
-```
+```   
+---
+4.제어자
+===
+## 1. 제어자
+---
+    클래스,변수 또는 메서드의 선언부에 함께 사용되어 
+    부가적인 의미를 부여한다.   
+ 
+|접근제어자|그외|
+|---|---|
+|public|static|
+|protected|final|
+|default|abstract|
+|private|natuve|
+||transient|
+||synchronized|
+||volatile|
+||strictfp|
