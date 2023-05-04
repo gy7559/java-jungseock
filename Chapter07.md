@@ -150,4 +150,23 @@ import문의 선언 방법
     또는 
     import 패키지명.*;
     ```   
-    클래스이름대신 " * " 을 사용할 경우 모든 클래스를 지정한다.
+    클래스이름대신 " * " 을 사용할 경우 모든 클래스를 지정한다.   
+
+### 5. static import문
+static import문의 경우
+    static멤버를 호출할때 클래스 이름을 생략할수 있다.
+    
+    
+```
+impot static java.lang.Integer.*;
+impot static java.lang.Math.random;
+impot static java.lang.System.out;
+```   
+과 같이 static import문을 선언해주었다면
+아래와 같이 코드 변경이 가능하다.   
+```
+System.out.println(Math.random());
+->
+out.println(random());
+
+```
