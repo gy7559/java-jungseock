@@ -62,6 +62,35 @@ Exception클래스와 자손, RuntimeException클래스와 자손으로 나눠�
  ```
 
 
-### 4. try-catch문에서의 흐름
+### 4. try-catch문에서의 흐름   
 
+예외가 발생한 경우와 발생하지 않은경우의 흐름   
+
+발생한경우    
+1. 발생한 예외와 일치하는 catch블럭이 있는지 확인
+2. 일치하는 블럭이 있다면 블럭내의 문장을 수행후 try-catch문을 빠져나가서 다음문장을 실행   
+찾지못하면 예외처리 불가   
+
+
+발생하지 않은경우   
+catch블럭을 거치지 않고 try-catch문을 빠져나가서 다음문장을 실행   
+
+### 5. 메서드의 예외선언
+
+메서드 선언부에 키워드 throws를 사용해서 예외 지정
+```java
+void method() throws Exception01, Exception2,... ExceptionN{
+	///메서드의 내용
+}
+```
+
+### 6. finally블럭	
+
+예외에 발생여부에 상관없이 실행되어야 할 코드를 포함 시킬 목적으로 사용된다.     
+
+ try-catch-finally의 순서로 구성 된다.
+ 
+ 
+	
+	
 	
