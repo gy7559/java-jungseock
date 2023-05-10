@@ -93,4 +93,13 @@ void method() throws Exception01, Exception2,... ExceptionN{
  
 	
 	
-	
+### 7. 사용자정의 예외 만들기
+
+ ```java
+ class MyException extends Exception{
+ 	MyException(String msg){//문자열을 매개변수로 받는 생성자
+		super(msg);//조상인 Exception클래스의 생성자를 호출
+	}
+ }
+ ```
+위와 같이 Exception클래스로 부터 상속받아 만들수 있다.
