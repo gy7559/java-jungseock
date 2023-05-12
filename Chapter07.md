@@ -292,6 +292,81 @@ abstract 리턴타입 메서드이름();
 **하나라도 구현이 안될시 자손클래스도 추상클래스로 지정해주어야 한다.**
 
 
+### 3. 추상클래스 작성
+    
+    추상화 : 클래스간의 공통점을 찾아내서 공통의 조상을 만드는 작업
+    구체화 : 상속을 통해 클래스를 구현 확장하는 작업
+
+```java
+abstract class Player{
+    boolean pause; // 일시정지 상태 저장 변수
+    int currentPos; // 현재 play되고있는 위치 저장 변수
+    
+    Player(){ // 추상클래스도 생성자가 있어야 한다.
+        pause = false; 
+        currentPos = 0;
+    }
+    
+    //지정 위치에서 재생을 시작하는 기능이 수행 되도록 작성 되어야 한다.
+    abstract void play(int pos);//추상 메서드
+     
+    //재생을 즉시 멈추는 기능을 작성하여야 한다.
+    abstract void stop();//추상 메서드
+    
+    void play(){
+        play(currentPos);  추상메서드를 사용할수있다.
+    }
+    
+    void pause(){
+        if(pause) { // pause가 true 일때 (정지상태)에서 pause가 호췰되면
+            pause = false;// pause의 상태를 false로 바꾸고
+            play(currentPos);//현재의 위치에서 play한다.
+        } else{ //pause가false 일때 (정지상태)에서 pause가 호췰되면
+            pause = true;//pause의 상태를 true로 바꾸고
+            stop();//play를 멈춘다.
+        }
+    }
+}
+
+```
+Plater추상 클래스를  play와 stop 추상 메서드를 작성하여 만들었다.     
+위 추상 클래스를 조상으로 받아 자손클래스를 만든 예시이다.
+```java
+class CDPlayer extends Player{
+    void play(int currentPos){
+        /*조상의 추상메서드를 구현 내용 생략*/
+    }
+    void stop(){
+        /*조상의 추상메서드를 구현 내용 생략*/
+    }
+    
+    //CDPlayer클래스에서 추가로 정의된 멤버
+    int currentTrack; // 현재 재생중인 트랙
+    
+    void nextTrack(){
+        currentTrack++;
+        //생략
+    }
+    void preTrack(){
+        if(currentTrack>1){
+             currentTrack--;
+        }
+        //생략
+    }
+    
+}
+
+```
+조상의 추상메서드를 기능에 맞게 완성을 하고 새로운 기능또한 추가 하였다.       
+아무내용없이 {}만 쳐주어도 play와 stop메서드를 일반메서드로 간주할수있다.      
+
+굳이 추상메서드를 사용하여 자손클래스에서 오버라이딩 하여 구현 하는것이 쓸데없을수 있지만    
+추상메서드부분을 지정하여 두는것으로 꼭 메서드를 작성해야된다는 **강제를 할수있기** 때문이다.    
+
+
+
+
+
 ---
 ## 7. 인터페이스
 ---
