@@ -84,8 +84,40 @@ public static void main(String[] args){
     날짜 - 날짜 : Period
     시간 - 시간 : Duration      
     
-sd
+**객체 생성 now(), of()**
+.now()는 현재의 날짜와 시간    
   
+.of()는 해당필드의 값을 순서대로 지정해 주기만 하면 된다.     
 
 
- 
+특정 필드의 값 가져오는 방법은 get메서드 사용하는것이 있다.    
+
+    LocalDate의 경우 getYear(),getMonth(),getDayOfYear()등이 있고     
+    LocalTime의 경우 getHour(),getMinute(),getSecond등이 있다.      
+    
+    
+#### 필드의 값 변경
+with()은 직접 원하는 필드를 지정가능하고        
+plus()의 경우에는 더하기 minus()의 경우에는 빼기이다.     
+
+#### 날짜와 시간의 비교 - isAfter(), isBefore(),isEqual()
+equals()는 년도까지 비교하지만     
+isEqual()은 오직 날짜만 비교하여 년도가 다른 두 날짜를 비교할수있다.
+
+
+### 3. Instant
+에포크 타임 부터 경과된시간을 나노초 단위로 표시하여 준다.     
+단일진법으로 이루어져 있어 계산이 쉽다.    
+
+### 4. 파싱과 포멧
+날짜와 시간을 원하는 형식으로 출력하고 해서(파싱)하는 방법
+
+format()을 사용하여
+```java
+LocalDate date = LocalDate.of(2016,1,2);
+String yyyymmdd=
+date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+```
+와 같이 사용됨    
+
+DateTimeFormatter에 사용되는 상수의 목록은 572p에 정리되어 
