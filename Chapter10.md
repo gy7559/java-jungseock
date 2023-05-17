@@ -77,12 +77,14 @@ public static void main(String[] args){
 ## 2. java.time패키지
 ### 1. java/tome 패키지의 핵심 클래스
 
-  시간 : LocalTime클래스
-  날짜 : LocalDate클래스
-  시간+날짜 : LocalDateTime
-  LocalDateTime + 시간대 : ZonedDateTime
-  날짜 - 날짜 : Period
-  시간 - 시간 : Duration
+    시간 : LocalTime클래스
+    날짜 : LocalDate클래스
+    시간+날짜 : LocalDateTime
+    LocalDateTime + 시간대 : ZonedDateTime
+    날짜 - 날짜 : Period
+    시간 - 시간 : Duration      
+    
+sd
   
 
 
