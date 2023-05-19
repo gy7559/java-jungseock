@@ -109,3 +109,48 @@ List인터페이스를 구현  List의 특징을 가진다.
     
     
     
+### 5. Iterator, ListIterator, Enumeration
+컬렉션에 저장된 요소를 접근하는데 사용되는 인터페이스      
+Enumeration = Iterator의 구버전,ListIterator = Iterator의 향상     
+
+
+Iterator는  요소를 읽어오는 방법을 표준화 하였으며
+메서드로는 
+|메서드|설명|
+|---|---|
+|boolean hasNext()|읽어올 요소가 남아 있는지 확인한다. 있으면 true,없으면 false를 호출|
+|Object next()|다음요소를 읽어온다.|
+|void remove()|next로 읽어온 요소를 삭제한다.|
+
+
+
+ Enumeration은 프레임웍이 만들어지기 이전에 사용하던것으로 호환을 위해 남겨둔것이라 Iterator를 사용하면된다.     
+
+ ListIterator는 List인터페이스를 구현한 경우에 양방향으로 이동이 가능하게 만들어둔것이다.     
+ 
+ ListIterator 의 메소드는  Iterator메소드에서 이전 요소에대한 접근도 추가 되었다.      
+ 
+ 
+ ### 6. Arrays
+ 배열을 다루는데 유용한 메서드가 정의 되어 있다.
+ 
+ **배열의 복사**      
+      coptOf()     : 배열의 전채 복사
+      copyOfRange()  : 배열의 특정 부분 복사    
+      
+**배열 채우기**
+      fill()   : 모든 요소를 지정된 값으로 채운다.
+      setAll() : 배열을 채우는데 사용할 함수형 인터페이스를 받는다.
+ 
+**배열의 정렬과 검색**
+      sort()   : 배열의 정렬
+      binarySearch() : 배열에 저장된 요소 검색(단 배열이 정렬되어 있어야함)
+ 
+**배열의 비교와 출력**
+      equals()    : 두배열을 비교하여 값으면 true 다르면 false를 출력 
+      toSting()   : 배열의 모든 요소를 문자열로 출력 가능
+      둘다 다차원 배열에서는 deep을 붙여주어 사용 deepToString(), deepEquals()
+      
+**베열을 List로 변환**
+      asList() 배열을 List로 변환 가능하지만 삭제및 추가가 불가능하다.
+               내용의 변경은 가능하다.
