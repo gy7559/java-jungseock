@@ -234,12 +234,33 @@ Collection, List, Set,Map,SortedSet,SortedMap, NavigableSet, NavigableMap이 있
 
 **싱글톤 컬렉션 만들기**
 단 하나의 객체만을 저장하는 컬렉션을 만들때 사용하는 메서드       
-
+```java
 static List singletonList(Objecto) 
 static Set  sington(Object o)
 static Map  singletonMap(Object key, Object value)
-
+```
 
 **한 종류의 객체만 저장하는 컬렉션 만들기**
 
 컬렉션에 지정된 종류의 객체만 저장하도록 제한 하고 싶을때 사용하는 메서드
+```
+static Collection    checkedCollection(Collection c,Class type)
+static List          checkedList(List list,Class type)
+static Set           checkedSet(Set s,Class type)
+static Map           checkedMap(Map m,Class keytype,Class valuetype)
+static Queue         checkedQueue(Queue queue,Class type)
+static SortedSet     checkedSortedSet(SortedSet s, Class type)
+static SortedMap     checkedSortedMap(SortedMap m,Class keytype,Class valuetype)
+static NavigableSet  checkedNavigableSet(NavigableSet s,Class type)
+static NavigableMap  checkedNavigableMap(NavigableMap m,Class keytype,Class valuetype)    
+```
+사용방법은 두 번째 매개변수에 저장할 객체의 클래스를 저장하면 된다.
+```java
+List list = new ArrayList();
+List checkedList = checkedList(list, String.class);
+checkedList.add("abc")
+checkedList.add(new Integer(3));//에러
+```
+
+
+
