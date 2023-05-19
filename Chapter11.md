@@ -136,7 +136,7 @@ Iterator는  요소를 읽어오는 방법을 표준화 하였으며
  
  **배열의 복사**      
  
-      coptOf()     : 배열의 전채 복사
+      copyOf()     : 배열의 전채 복사
       copyOfRange()  : 배열의 특정 부분 복사    
       
 **배열 채우기**
@@ -159,3 +159,85 @@ Iterator는  요소를 읽어오는 방법을 표준화 하였으며
 
       asList() 배열을 List로 변환 가능하지만 삭제및 추가가 불가능하다.
                내용의 변경은 가능하다.
+
+### 7. Comparator와 Comparable
+컬렉션을 정렬하는대 필요한 메서드를 정의 하고있는 인터페이스 이다.    
+
+Comparable을 구성하고 있는 클래스들은 wrapper클래스와 String,Date,File과 같은 것들이다.      
+기본적으로 오름차순 정렬이다.        
+
+Comparator와 Comparable의 실제 소스
+```java
+public interface Comparator{
+   int compare(Object o1,Object o2);
+   boolean equals(Object obj);
+}
+
+public interface Comparable{
+   public int compareTo(Object o);
+}
+```
+compare()와 compareTo()는 약간 다를뿐 두객체를 비교한다는 같은 기능을 목적으로 고안함     
+
+
+### 8. HashSet
+Set인터페이스를 구현한 가장 대표적인 컬렉션     
+중복요소를 저장하지 않는다.      
+저장 순서도 저장하지 않기때문에 필요하다면 LinkedHashSet을 사용해야 한다.
+
+
+### 9. TreeSet
+이진 검색 트리 라는 자료구조의 형태로 데이터를저장하는 컬렉션 클래스이다.      
+하나의 노드에서 계속 추가되어 나갈수있다.    
+자식노드와 부모노드로 나뉘며 하나의 부모노드는 최대 2개의 자식 노드를 가질수 있다.     
+
+### 10 HashMap과 Hashtable
+Hashtable보다 새로운 버전인 HashMap의 사용을 권장        
+HashMap은 Map을 구현한것이기 때문에     
+키 와 값을 묶어서 하나의 쌍으로 데이터를 가진다.
+
+      키는 값이 유일해야해서 중복이 되지 않지만
+      값은 중복을 혀용한다.
+
+
+**해싱과 해시함수**
+      
+      해싱은 해시함수를 이용해서 데이터를 해시테이블에 저장하고 검색하는 기법이다.
+      
+
+### 11. TerrMap
+이진검색트리의 형태로 Map의 형태인 키와 값의 쌍으로 이루어진 데이터를 저장한다.    
+
+### 12. ProPerties
+Hashtable을 상속받아 구현한 것으로 (String,Sring)의 형태로 저장하는 단순화된 컬렉션클래스     
+애플리케이션의 환경설정과 관련된 속성(property)를 저장하는데 사용됨      
+간단한 입출력은 ProPerties을 활용하면 쉽게 해결 가능    
+
+
+### 13. Collections
+
+**컬렉션의 동기화**
+멀티 쓰레드 프로그래밍 에서는 하나의 객체를 여러 쓰레드가 동시에 접근할 수 있기 떄문에    
+데이터릐 일관성을 유지하기 위해 객체 동기화가 필요하다.     
+
+동기화 메서드로는 
+```java
+static Collection synchronizedCollection(Collection c)
+```
+와 같이
+List, Set,Map,SortedSet,SortedMap에서 synchronized를 붙여 주면 된다.
+
+**변경불가 컬렉션 만들기**
+데이터를 보호하기위해 읽기전용으로 만들어야 될때 사용한다.
+메서드는 동기화에서 synchronized대신 unmodifiable을 작성해주면 된다.
+Collection, List, Set,Map,SortedSet,SortedMap, NavigableSet, NavigableMap이 있다.     
+
+**싱글톤 컬렉션 만들기**
+단 하나의 객체만을 저장하는 컬렉션을 만들때 사용하는 메서드       
+
+static List singletonList(Objecto) 
+static Set  sington(Object o)
+static Map  singletonMap(Object key, Object value)
+
+
+**한 종류의 객체만 저장하는 컬렉션 만들기**
