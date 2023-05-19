@@ -32,4 +32,5 @@
 **List 인터페이스**
 |메서드|설명|
 |---|---|
-|Void add(int index, Object element)   boolean addAll(int index, Collection c) |지정된 위치(index)에 객체 또는 컬렉션에 포함된 객체들을 추가한다.|
+|Void add(int index, Object element)
+boolean addAll(int index, Collection c) |지정된 위치(index)에 객체 또는 컬렉션에 포함된 객체들을 추가한다.|
