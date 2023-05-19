@@ -20,3 +20,16 @@
 |Map|키 와 값을 쌍으로 이루어진 데이터의 집합. 순서유지X 키=중복X 값=중복O|
 
 
+**Collection인터페이스**
+|메서드|설명|
+|---|---|
+|boolean add(object o)|지정된 객체(o)를 Collection에 초가한다.|
+|void clear()|Collection의 모든 객체를 삭제한다.|
+|boolean remove(Object o)|지정 객체 삭제|
+
+등 여러 메서드가 존재한다.
+
+**List 인터페이스**
+|메서드|설명|
+|---|---|
+|Void add(int index, Object element)   boolean addAll(int index, Collection c) |지정된 위치(index)에 객체 또는 컬렉션에 포함된 객체들을 추가한다.|
