@@ -241,3 +241,5 @@ static Map  singletonMap(Object key, Object value)
 
 
 **한 종류의 객체만 저장하는 컬렉션 만들기**
+
+컬렉션에 지정된 종류의 객체만 저장하도록 제한 하고 싶을때 사용하는 메서드
