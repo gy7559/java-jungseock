@@ -34,7 +34,17 @@
 
 #### 생성자와 메서드
 
-468~471p 에 정리되어있음 추후 표로 정리함
+|메서드|설명|
+|---|---|
+|boolean startsWith(String x)|주어진 문자열로 시작하는지 검사한다.|
+|String substring(int begin) or (int begin,int end)|주어진 시작위치에서 끝위치 범위에 포함된 문자열을 얻는다.(끝위치 문자는 미포함)|
+|String trim()|문자열의 왼쪽끝과 오른쪽 끝의 공백을 없앤 결과를 반환|
+|char charAt(int i)|지정된 위치에 있는 문자를 알려줌|
+|int indexOf(int ch)|주어진 문자가 문자열에 존재하는지 확인후 위치 반환|
+|int indexOf(int ch, int pos)|주어진 문자가 문자열에 존재하는지 지정위치(pos)부터 확인후 반환|
+|int indexOf(String str)|주어진 문자열이 존재하는지 확인후 위치 반환 없으면 -1반환|
+|toCharArray()|이 인스턴스의 문자를 유니코드 문자 배열에 복사|
+|static valueOf()|지정된 값을 문자열로 반환하여 변환|
 
 
 ### 3. StringBuffer클래스와 StringBuilder클래스    
