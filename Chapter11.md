@@ -89,6 +89,24 @@ List인터페이스를 구현  List의 특징을 가진다.
         Stack : 마지막에 저장한 데이터가 먼저나오는 구조
         Queue : 처음저장한 데이터가 먼저 나오는 구조
                
+**Stack의 메서드**
+|메서드|설명|
+|---|---|
+|pop()|맨 위에 저장된 객체를 꺼낸다|
+|peek()|맴위에 저장된 객체를 반환 꺼내지는 않음|
+|push()|Stack에 객체 저장|
+|empty()|Stack이 비어있는지 확인|
+
+
+**Queue의 메서드**
+|메서드|설명|
+|---|---|
+|Object poll()|객체를 꺼내서 반환 비어있으면 null을 반환|
+|boolean offer()|객체를 저장 성공하면 ture 실패하면 false를 반환|
+|boolean add()|지정된 객체를 Queue에 추가 |
+|boolean isEmpty()|Queue가 비어있는지 확인|
+|peek()|삭제없이 요소를 읽어옴 비었으면 null|
+
  
 데이터를 추가/삭제가 쉬운 LinkedList가 적합하다.      
 
