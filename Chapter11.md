@@ -140,7 +140,36 @@ Iterator는  요소를 읽어오는 방법을 표준화 하였으며
 |Object next()|다음요소를 읽어온다.|
 |void remove()|next로 읽어온 요소를 삭제한다.|
 
+ex)Iterator의 hasNext를 사용하여 while문의 조건으로 활용
 
+```java
+import java.util.*;
+
+public class IteratorEx1 {
+
+	public static void main(String[] args) {
+		ArrayList list = new ArrayList();
+		
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		list.add("4");
+		list.add("5");
+		
+		ListIterator it = list.listIterator();
+		
+		while(it.hasNext()) {
+			System.out.print(it.next());
+		}
+		System.out.println();
+		while(it.hasPrevious()) {
+			System.out.print(it.previous());
+		}
+	}
+
+}
+
+```
 
  Enumeration은 프레임웍이 만들어지기 이전에 사용하던것으로 호환을 위해 남겨둔것이라 Iterator를 사용하면된다.     
 
