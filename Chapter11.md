@@ -63,6 +63,16 @@ List인터페이스를 구현  List의 특징을 가진다.
 중간의 데이터를 추가 하기 위해서는 다른 데이터를 복사해서 이동해서 빈자리를 만들어야 한다.    
 
 
+|메서드|설명|
+|---|---|
+|boolean add(Integer e)|ArrayList 마지막에 객체(e)를 추가 성공하면 true를 반환|
+|void add(int index,Integer element)|지정위치(index)에 객체(e)를 추가|
+|boolean contains(Object o)|지정된 객체(o)가 ArrayList에 포함되어있는지 확인|
+|boolean addAll(Collection c)|주어진 컬랙션의 모든 객체를 저장한다.|
+|boolean addAll(int index,Collection c)|지정된 위치부터 주어진 컬렉션의 모든 객체를 저장한다.|
+|int indexOf(Object o)|지정된 객체가 저장된 위치를 찾아 반환한다.|
+
+
 
 ### 3. LinkedList
 배열의 단점을 보완하기위해서 LinkedList라는 자료구조가 고안 되었다.      
