@@ -274,6 +274,35 @@ Set인터페이스를 구현한 가장 대표적인 컬렉션
 저장 순서도 저장하지 않기때문에 필요하다면 LinkedHashSet을 사용해야 한다.
 
 
+|메서드|설명|
+|---|---|
+|boolean addAll(Collection c)|주어진 컬렉션에 저장된 모든 객체를 추가한다.(합집합)|
+|boolean removeAll(Collection c)|주어진 컬렉션에 저장된 모든 객체와 같은 것들을 모두 삭제한다.(차집합)|
+|boolean retainAll(Collection c)|주어진 컬렉션에 저장된 객체와 동일한것만 남기고 삭제한다.(교집합)| 
+
+
+위 세 메서드는 결과를 성공하면 ture 실패하면 false로 메서드후의 결과는 Set에 저장된다.
+
+```java
+HashSet<Integer> ss = new HashSet();
+HashSet<Integer> ss2 = new HashSet();
+		ss.add(1);
+		ss.add(2);
+		ss.add(3);
+		ss.add(4);
+
+		ss2.add(3);
+		ss2.add(4);
+		ss2.add(5);
+		ss2.add(6);
+
+ss.addAll(ss2);
+```
+
+
+
+
+
 ### 9. TreeSet
 이진 검색 트리 라는 자료구조의 형태로 데이터를저장하는 컬렉션 클래스이다.      
 하나의 노드에서 계속 추가되어 나갈수있다.    
