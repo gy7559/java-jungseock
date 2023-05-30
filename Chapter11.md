@@ -46,7 +46,22 @@
 
 **Map인터페이스**
 키와 값을 하나의 쌍으로 묶어서 저장하는 컬렉션 클래스를 구현하는대 사용된다.        
-Hashtable, HashMap,LinkedHashMap,SortedMap, TreeMap등이 있다.         
+Hashtable, HashMap,LinkedHashMap,SortedMap, TreeMap등이 있다.            
+
+	Set entrySet() : Map에 저장되어 있는  key-value쌍을 Map.Entry타입의 객체로 저장한 Set으로 반환
+	Set keySet(): Map에저장된 모든 key 객체를 Set타입으로 반환
+      
+**Map.Entry인터페이스**     
+key-value쌍을 다루기 위해 내부적으로 정의한 Entry인터페이스
+|메서드|설명|
+|---|---|
+|Object getKey()|Entry의 key객체를 반환한다.|
+|Object getValue()|Entry의 value객체를 반환한다.|
+|boolean equals(Object o)|동일한 Entry인지 비교한다.|
+|Object setValue()|Entry의 value객체를 지정된 객체로 바꾼다.|
+|int hashCode()|Entry의 해시코드를 반환한다.|
+
+
 
 
 ### 2.ArrayList
@@ -317,6 +332,51 @@ HashMap은 Map을 구현한것이기 때문에
 
       키는 값이 유일해야해서 중복이 되지 않지만
       값은 중복을 혀용한다.
+
+
+
+```java
+import java.util.*;
+public class HashMapEx2 {
+	public static void main(String[] args) {
+		HashMap map = new HashMap();// 해시맵 생성 map
+		map.put("김자바",new Integer(100)); // map에 key와 value추가
+		map.put("이자바",new Integer(100));
+		map.put("강자바",new Integer(80));
+		map.put("안자바",new Integer(90));
+	
+		Set set= map.entrySet(); // key와 value쌍으로 된 Entry타입의 set 생성
+		Iterator it = set.iterator();// set을 읽어올수있도록 Iterator 생성
+		
+		while(it.hasNext()) { //it(set)의 길이만큼 반복
+			Map.Entry e = (Map.Entry)it.next(); // 새로운 Entry타입의 e생성 it에 저장된 set의 Entry타입 데이터 를 저장 반복할때마다 다음 데이터로 저장
+			System.out.println("이름 : "+e.getKey()+", 점수 : "+e.getValue()); // 저장된 key값과 value를 반환.
+		}
+		
+		set = map.keySet(); //set을 key값만 가지도록 변경
+		System.out.println("참가자 명단 :" +set); // key값을 출력
+		
+		Collection values = map.values(); // value값만 저장한 Collection을 생성
+		it = values.iterator();// it이 읽어올 요소를 values로 변경
+		
+		int total = 0;//총점을 집계하기위한 변수 생성
+		
+		while(it.hasNext()) {
+			Integer i = (Integer)it.next(); // it에 저장된 value값을 Integer타입으로 i에 저장
+			total += i.intValue(); // Integer 객체인 i에서 int타입으로 값을 반환후 total에 합하면서 저장
+		}		
+		System.out.println("총점 : "+total); //총점 출력
+		System.out.println("평균 : "+(float)total/set.size());//총점을 key값의 갯수만큼 나누어 평균을 구함
+		System.out.println("최고점수 : "+Collections.max(values));// Collection values 에저장된 가장 큰값을 출력
+		System.out.println("최저점수 : "+Collections.min(values));// Collection values 에저장된 가장 작은값을 출력
+	}
+
+}
+
+```
+
+
+
 
 
 **해싱과 해시함수**
