@@ -117,10 +117,10 @@ List인터페이스를 구현  List의 특징을 가진다.
 **Stack의 메서드**
 |메서드|설명|
 |---|---|
-|pop()|맨 위에 저장된 객체를 꺼낸다|
-|peek()|맴위에 저장된 객체를 반환 꺼내지는 않음|
-|push()|Stack에 객체 저장|
-|empty()|Stack이 비어있는지 확인|
+|Object pop()|맨 위에 저장된 객체를 꺼낸다|
+|Object peek()|맴위에 저장된 객체를 반환 꺼내지는 않음|
+|Object push()|Stack에 객체 저장|
+|boolean empty()|Stack이 비어있는지 확인|
 
 
 **Queue의 메서드**
