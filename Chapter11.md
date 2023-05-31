@@ -128,10 +128,10 @@ List인터페이스를 구현  List의 특징을 가진다.
 |---|---|
 |Object poll()|객체를 꺼내서 반환 비어있으면 null을 반환|
 |boolean offer()|객체를 저장 성공하면 ture 실패하면 false를 반환|
-|boolean add()|지정된 객체를 Queue에 추가 |
+|boolean add()|지정된 객체를 Queue에 추가 저장공간 부족하면 에러뜸|
 |boolean isEmpty()|Queue가 비어있는지 확인|
 |Object peek()|삭제없이 요소를 읽어옴 비었으면 null|
-|Object remove()|객체를 꺼내 반환.|
+|Object remove()|객체를 꺼내 반환. 실패하면 에러뜸|
 
  
 데이터를 추가/삭제가 쉬운 LinkedList가 적합하다.      
