@@ -71,3 +71,63 @@ class Box<T>의 경우
  
         배열을 생성해야 한다면 Object 배열을 생성해서 T[]에 복사넣기를 하거나     
         newInstance()와 같이 동적으로 객체를 생성하는 메서드로 배열을 생성하는 방법이 있다.
+
+### 3. 지네릭 클래스의 객체 생성과 사용
+  
+지네릭 클래스가 아래와 같이 정의 되어있을때 
+```java
+  class Box<T>{
+  	ArrayList<T> list = new ArrayList<T>();
+  
+	  void add(T item) {list.add(item);}
+	  T get(int i) {return list.get(i);}
+	  ArrayList<T> getList(){return list;}
+	  int size() {return list.size();	}
+	  public String toString() {return list.toString();}
+}
+```
+
+객체 생성시
+```java
+  Box<Apple> appleBox = new Box<Apple>();
+  Box<Grape> grapeBox = new Box<Apple>();//에러
+```
+위와 같이 참조자와 생성자에 대입된 타입을 일치 시켜줘야 한다.   
+두 타입이 상속 관계여도 일치시켜줘야 하며   
+단 클래스 타입이 상속관계에 있을경우 대입된 타입이 같은것은 괜찮다.         
+  
+
+```java
+  Box<Apple> appleBox = new FruitBox<Apple>();
+```
+FruitBox가 Box의 자손이라 가정하였을경우
+  
+ 또한 .add(T item)를 사용하여 객체를 추가할때 대입된 타입과 다른 타입은 추가할수없다.
+  단 대입된 타입의 자손 타입들은 매개변수가 될수있다.
+  
+ 
+### 4. 제한된 지네릭 클래스
+  타입 매개변수 T에 지정할 타입의 종류를 제한하는 방법
+  
+  ```java
+    class FruitBox<T extends Fruit> {
+      ArrayList<T> list = new ArrayList<T>();
+    ...
+  }
+  ```
+  
+  위와 같이 지네릭 타입에 extends를 사용하여 Fruit클래스와 그 자손들만 담을수있게 제한을 추가했다.       
+  클래스가 아닌 인터페이스를 구현해야되는 제약 또한 extends를 사용한다.     
+  
+  Fruit의 자손이면서 Eatable의 인터페이스 또한 구현해야 한다면 &기호로 연결하여 준다.
+  ```java
+    class FruitBox<T extends Fruit & Eatable> {}
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
