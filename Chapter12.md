@@ -49,7 +49,8 @@ T는 Type의 T다.
 class Box<T>의 경우     
   
   
-  Box<T>
-  T
-  Box
+    Box<T>
+    T
+    Box     
+      
     
