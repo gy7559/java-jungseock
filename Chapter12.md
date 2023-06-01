@@ -127,5 +127,51 @@ FruitBox가 Box의 자손이라 가정하였을경우
 
 	
 ### 5. 와일드 카드
+static 메서드에서 지네릭타입을 사용해야될때
+오버로딩을 통한 구현이 되지 문제가 발생한다.
+	
+	```java
+		class Juicer{
+	static Juice makeJuice(FruitBox<Fruit> box) { 
+		String tmp = "";
+		
+		for(Fruit f : box.getList())
+			tmp += f + " ";
+		return new Juice(tmp);
+	}
+	}
+	```
+위와 같은 상황일 경우 Fruit가 아닌 Apple을 넣기위해서 오버로딩(같은이름의 메서드를 다른 매개변수를 지정하여 만드는것)을 하면      
+컴파일 에러가 발생한다.   
+지네릭타입은 컴파일후 제거되기 때문에 중복 메서드 정의가 되어버린다.
+	
+이때 와일드 카드를 이용하여 상한제한 혹은 하한 제한을 두어 대입타입의 자손 혹은 조상 만사용할수있도록 정의해주는것이다.
+```java
+		class Juicer{
+	static Juice makeJuice(FruitBox<? extends Fruit> box) { 
+		String tmp = "";
+		
+		for(Fruit f : box.getList())
+			tmp += f + " ";
+		return new Juice(tmp);
+	}
+	}
+	```	
+<? extends Fruit> = 상한 제한으로 Fruit와 그 자손들만 가능하다.
 
+	<? extends T> 	: 상한제한 T와 그 자손만 가능
+	<? super T>	: 하한제한 T와 그 조상만 가능
+	<?>		: 제한없음 모든 타입 가능
+
+	
+와일드 카드를 이용한 제한에 
+		```java
+		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+		FruitBox<Apple> appleBox = new FruitBox<Apple>();
+		 ...
+		 System.out.println(Juicer.makeJuice(fruitBox));
+		 System.out.println(Juicer.makeJuice(appleBox));
+		```
+Fruit와 Apple둘다 Juicer의 메서드인 makeJuice의 매개변수 FruitBox의 변수타입으로 사용이 가능하다.
+	
 	
