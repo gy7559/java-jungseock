@@ -228,3 +228,20 @@ public static <T extends Product> void priontAll(ArrayList<T> list1,ArrayList<T>
 
 
 ### 7. 지네릭 타입의 형변환
+지네릭 타입에서 다른 지네릭 타입으로 형변환은 불가능하다.      
+다만 <? extends Object> 를 사용하면 가능하다.      
+Box<? extends Object> wBox = new Box<String>
+과 같이 가능하다.
+
+전에사용한코드인 makeJuice메서드에서 다형성이 적용된이유와 같다.
+```java
+static Juice makeJuice(FruitBox<? extends Fruit> box){}
+	FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+	FruitBox<Apple> appleBox = new FruitBox<Apple>();
+```
+위 코드가 아래의 코드와 같기 때문이다.
+```java
+static Juice makeJuice(FruitBox<? extends Fruit> box){}
+	FruitBox<? extends Fruit> fruitBox = new FruitBox<Fruit>();
+	FruitBox<? extends Fruit> appleBox = new FruitBox<Apple>();
+```
