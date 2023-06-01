@@ -167,7 +167,7 @@ static 메서드에서 지네릭타입을 사용해야될때
 
 	
 
-와일드 카드를 이용한 제한에    
+와일드 카드를 이용한 제한으로   
 	 
 ```java
 	FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
@@ -183,4 +183,48 @@ Fruit와 Apple둘다 Juicer의 메서드인 makeJuice의 매개변수 FruitBox�
 	
 ### 6. 지네릭 메서드
 	
+	
+```java
+	static <T> void sort(List<T> list, Comparator<? super T> c)	
+```
+와 같이 메서드에 지네릭 타입을 선언된것을 지네릭 메서드라고 한다.    
 
+지네릭클래스에 정의된 타입 매개변수와 지네릭 메서드에 정의된 타입 매개변수는 전혀 별개의 것이다.       
+
+```java
+class FruitBox<T>{
+	static <T> void sort(List<T> list, Comparator<? super T> c){}	
+	}
+```
+위 코드에서  FruitBox<T> T와 메서드에 선언된 타입 T는 문자만 같을뿐 서로 다른 것이다.       
+ 
+makeJuice()를 지네릭 메서드로 바꾸면 다음과 같다.
+```java
+	static Juice makeJuice(FruitBox<? extends Fruit> box) 
+```
+```java
+	static <T extends Fruit> Juice makeJuice(FruitBox<T> box) 
+```
+이제 이메서드를 호출할때는 타입변수에 타입을 대입해야한다.
+
+```java
+	FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+	FruitBox<Apple> appleBox = new FruitBox<Apple>();
+	 ...
+	 System.out.println(Juicer.<Fruit>makeJuice(fruitBox));
+	 System.out.println(Juicer.<Apple>makeJuice(appleBox));
+```
+단 클래스이름인 Juicer를 생략할수 없다.
+
+예시로 타입이 복잡할 경우 간략화 할수있다.
+```java
+public static void priontAll(ArrayList<? extends Product> list1,ArrayList<? extends Product> list2){}
+```
+와 같은 경우에 
+```java
+public static <T extends Product> void priontAll(ArrayList<T> list1,ArrayList<T> list2){}
+```
+와 같이 간략화가 가능하다.     
+
+
+### 7. 지네릭 타입의 형변환
