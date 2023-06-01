@@ -157,22 +157,27 @@ static 메서드에서 지네릭타입을 사용해야될때
 	}
 	}
 ```	
-<? extends Fruit> = 상한 제한으로 Fruit와 그 자손들만 가능하다.
+
+<? extends Fruit> = 상한 제한으로 Fruit와 그 자손들만 가능하다.   
+
 
 	<? extends T> 	: 상한제한 T와 그 자손만 가능
 	<? super T>	: 하한제한 T와 그 조상만 가능
 	<?>		: 제한없음 모든 타입 가능
 
 	
-와일드 카드를 이용한 제한에 
-		```java
-		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
-		FruitBox<Apple> appleBox = new FruitBox<Apple>();
-		 ...
-		 System.out.println(Juicer.makeJuice(fruitBox));
-		 System.out.println(Juicer.makeJuice(appleBox));
-		```
-Fruit와 Apple둘다 Juicer의 메서드인 makeJuice의 매개변수 FruitBox의 변수타입으로 사용이 가능하다.
+
+와일드 카드를 이용한 제한에    
+	 
+```java
+	FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
+	FruitBox<Apple> appleBox = new FruitBox<Apple>();
+	 ...
+	 System.out.println(Juicer.makeJuice(fruitBox));
+	 System.out.println(Juicer.makeJuice(appleBox));
+```
+	
+Fruit와 Apple둘다 Juicer의 메서드인 makeJuice의 매개변수 FruitBox의 변수타입으로 사용이 가능하다.    
 	
 	
 	
