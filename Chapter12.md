@@ -124,10 +124,8 @@ FruitBox가 Box의 자손이라 가정하였을경우
     class FruitBox<T extends Fruit & Eatable> {}
   ```
   
-  
-  
-  
-  
-  
-  
-  
+
+	
+### 5. 와일드 카드
+
+	
