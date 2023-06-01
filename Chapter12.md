@@ -245,3 +245,30 @@ static Juice makeJuice(FruitBox<? extends Fruit> box){}
 	FruitBox<? extends Fruit> fruitBox = new FruitBox<Fruit>();
 	FruitBox<? extends Fruit> appleBox = new FruitBox<Apple>();
 ```
+하지만 반대의 경우 확인되지 않은 형변환이라는 경고가 발생한다.     
+'<? extends Fruit>'에 대입될수 있는 타입이 여러개이며       
+'FruitBox<Apple>'를 제외한 다른타입은 'FruitBox<Apple>'로 형변환 될수 없기 때문이다.      
+
+### 8. 지네릭 타입의 제거
+캄파일러는 지네릭 타입을 이용해서 소스파일을 체크하고, 필요한 곳에 형변환을 넣어준다.      
+그후 지네릭타입을 제거한다.
+	
+1. 지네릭 타입의 경계를 제거한다.
+	'<T extends Fruit>' 라면 T는 Fruit로 치환된다. <T>의 경우 Object로 치환 된다.
+2. 지네릭 타입을 제한 후에 타입이 일치하지 않으면, 형변환을 추가한다.
+```java
+	T get(int i){
+		return list.get(i);
+	}
+```
+와 같은 경우는 List의 get()은 Object타입 반환하므로 형변환이 필요하다.
+```java
+	Fruit get(int i){
+		return (Fruit)list.get(i);
+	}
+```
+
+	와일드 카드가 포함된 경우에는 적절한 타입으로의 형변환이 추가된다.
+
+
+## 2. 열거형
