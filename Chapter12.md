@@ -156,7 +156,7 @@ static 메서드에서 지네릭타입을 사용해야될때
 		return new Juice(tmp);
 	}
 	}
-	```	
+```	
 <? extends Fruit> = 상한 제한으로 Fruit와 그 자손들만 가능하다.
 
 	<? extends T> 	: 상한제한 T와 그 자손만 가능
