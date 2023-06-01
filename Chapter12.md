@@ -175,3 +175,7 @@ static 메서드에서 지네릭타입을 사용해야될때
 Fruit와 Apple둘다 Juicer의 메서드인 makeJuice의 매개변수 FruitBox의 변수타입으로 사용이 가능하다.
 	
 	
+	
+### 6. 지네릭 메서드
+	
+
