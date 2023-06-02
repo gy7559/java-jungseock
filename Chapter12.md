@@ -272,3 +272,37 @@ static Juice makeJuice(FruitBox<? extends Fruit> box){}
 
 
 ## 2. 열거형
+### 1. 열거형
+서로 관련된 상수를 편리하게 선언하기 위한것     
+ex)
+```java
+class Card{
+	static final int CLONER = 0;
+	static final int HEART = 1;
+	static final int DIAMOND = 2;
+	static final int SPADE = 3;
+
+	static final int TWO = 0;
+	static final int THREE = 1;
+	static final int FOUR = 2;
+
+	final int kind;
+	final int num;
+}
+```
+```java
+class Card{
+	enum Kind {CLONER,HEART,DIAMOND,SPADE } //열거형 Kind정의
+	enum Value {TWO,THREE,FOUR} // 열거형 Value정의
+
+	final Kind kind;
+	final Value num;
+}
+```
+자바의 열거형은 타입에 안전한 열거형 이라서 실제 값이 같아도 타입이 다르면 컴파일 에러가 난다.
+```javai
+if(Card.Kind.CLOVER == Card.Value.TWO) // 컴파일 에러
+```
+위와같이 값은 0으로 같지만 타입이 달라 컴파일 에러가 난다.        
+
+중요한것은 *상수의 값이 바뀌면* 해당상수를 참조하는 모든 소스를 다시 컴파일 해야한다.
