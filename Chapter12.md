@@ -305,4 +305,101 @@ if(Card.Kind.CLOVER == Card.Value.TWO) // 컴파일 에러
 ```
 위와같이 값은 0으로 같지만 타입이 달라 컴파일 에러가 난다.        
 
-중요한것은 *상수의 값이 바뀌면* 해당상수를 참조하는 모든 소스를 다시 컴파일 해야한다.
+중요한것은 *상수의 값이 바뀌면* 해당상수를 참조하는 모든 소스를 다시 컴파일 해야한다.        
+하지만 열거형 상수를 사용하면 기존의 소스를 다시 컴파일 하지 않아도 된다.       
+
+## 2. 열거형 정의와 사용
+정의하는 방법
+	
+	enum 열거형 이름 {상수명 1, 상수명2,...}
+
+사용방법
+
+	열거형이름.상수명
+ex)
+```java
+	enum Direction {EAST, SOUTH,WEST,NORTH}
+
+class Unit{
+	int x,y;
+ 	Direction dir;
+	
+	void init(){
+		dir = Direction.EAST;
+	}
+}
+```
+
+열거형 상수간의 비교에는 "=="이 사용가능하다.       
+그러나 '<','>'와같은 비교연산자는 사용할수 없고 compareTo()는 사용가능하다.      
+compareTo()는 비교대상이 같으면 0, 왼쪽이크면 양수, 오른쪽이 크면 음수를 반환한다.
+
+**모든 열거형의 조상 - java.lang.Enum**
+
+Direction에 정의된 모든 함수를 출력하는법
+```java
+Direction[] dArr = Direction.values();
+
+for(Direction d : dArr)
+	System.out.printf("%s = %d%n",d.name(),d.ordinal());
+```
+values()는 모든 상수를 배열에 담아 반환 한다.           
+ordinal()은 java.lang.Enum에서 정의된것으로 열거형 상수가 정의된 순서(0부터)를 정수로 반환한다.       
+
+Enum클래스의 메서드
+|메서드|설명|
+|---|---|
+|Class<E> getDeclaringClass()|열거형의 Class객체를 반환한다.|
+|String name()|열거형 상수의 이름을 반환한다.|
+|int ordinal()|열거형 상수가 정의된 순서를 반환|
+|T valueOf(Class<T> enumType, String name)|지정된 열거형에서 name과 일치하는 열거형 상수를 반환한다.|
+
+valueOf()는 컴파일러가 자동적으로 추가해주는 메서드로 values()와 같다.        
+valueOf()는 열거형 상수의 이름으로 문자열 상수에 대한 참조를 얻을 수 있게 해준다.
+
+
+### 3. 열거형에 멤버 추가하기
+ordinal()이 정의된 순서를 반환하지만 이값은 상수값으로 사용하지 않는것이좋다.       
+상수의 값이 불연속적일경우 상수옆에 괄호()와 함께 적어주면된다.
+```java
+	enum Ditrection {EAST(1), SOUTH(5),WEST(-1),NORTH(10)}
+```
+그리고 지정된 값을 저장할 수 있는 인스턴스 변수와 생성자를 새로 추가해야 한다.  
+
+```java
+enum Ditrection {
+	EAST(1), SOUTH(5),WEST(-1),NORTH(10);
+	
+	private final int value ; //정수를 저장할 필드(인스턴스 변수)추가
+	Direction(int value){this.value=value;} // 생성자 추가
+	
+	public int getValue(){return value;}
+}
+```
+하지만 생성자를 만들었다고 외부에서 생성자를 호출하여 열거형 객체를 만들수는 없다.       
+
+**열거형에 추상메서드 추가하기**
+예제
+```java
+enum Transportation{
+	BUS(100) {int fare(int distance){return distance*BASIC_FARE;}},
+	TRAIN(150) {int fare(int distance){return distance*BASIC_FARE;}},
+	SHIP(100) {int fare(int distance){return distance*BASIC_FARE;}},
+	AIRPLANE(300) {int fare(int distance){return distance*BASIC_FARE;}};
+	
+	protected final int BASIC_FARE;
+	
+	Transportation(int basicFare){
+		BASIC_FARE = basicFare;
+	}
+	public int getBasicFare() {
+		return BASIC_FARE;
+	}
+	
+	abstract int fare(int distance);//거리에 따른 요금 계산 추상메서드
+}
+```
+열거형에 int fare(int distance)를 선언하면 각 열거형 상수가 이메서드를 반드시 구현해야한다.        
+전부 똑같이 구현하지않고 각 상수마다 다르게 구현하는것또한 가능하다.       
+
+
