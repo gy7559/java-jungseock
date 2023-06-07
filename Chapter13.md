@@ -58,4 +58,54 @@ Runnable인터페이스 구현의 경우
 인터페이스를 구현한 클래스 인스턴스 생성후     
 Thread생성자로 인스턴스를 생성해 주어야 한다.     
 
+Thread클래스를 상속받으면 Thread의 메서드를 직접 호출이 가능하지만      
+Runnable을 구현하였을경우 Thread클래스의 static메서드인 currentThread()를 호출하여 쓰레드에대한 참조를 받아와야 호출이 가능하다.     
+
+	static Thread currentThread()	: 현재 실행중인 쓰레드의 참조를 반환
+	String getName			: 쓰레드의 이름을 반환
+	
+ex)
+```java
+class ThreadEx1_1 extends Thread{
+	public void run() {
+		for(int i =0; i<5; i++) {
+			
+			System.out.println(getName());//조상인 Thread의 gryName()을 호출
+		}
+	}
+}
+
+class ThreadEx1_2 implements Runnable{
+	public void run() {
+		for(int i =0; i<5;i++) {
+			// Thread.currentThread() - 현재 실행중인 Thread를 반환한다.
+			System.out.println(Thread.currentThread().getName());
+		}
+	}
+}
+```
+
+**쓰레드의 실행**
+쓰레드를 생성했다고 자동으로 실행되는것이 아닌         
+start()를 호출해야 실행된다.      
+start()를 호출하면 실행대기상태로 호출스택에 쌓이게된다.       
+
+start()를 호출하고 다시 호출하기위해서는 쓰레드를 새로 생성 해주어야 한다.     
+
+ 
+## 3. start()와 run()
+
+start()가 main메서드에서 run()을 호출하여 main과 별개로 호출스택을 생성 run()이 작업을 한다.    
+run()이 호출되고나면 start()는 사라진다.     
+실행중인 사용자 쓰레드가없을경우 프로그램은 종료 된다.     
+
+## 4. 싱글 쓰레드와 멀티 쓰레드 
+싱글코어의 경우 CPU만을 사용하는 계산작업의 경우는 싱글쓰레드의 경우가 더 효율적이다.        
+
+
+멀티코어의 경우는 실글코어와 다르게 두작업이 겹치면서 실행되기때문에 자원들두고 경쟁하게 된다.     
+하지만 다른 자원을 사용하는 경우 멀티쓰레드의 경우가 효율적이다.      
+
+
+
 
