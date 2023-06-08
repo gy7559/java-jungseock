@@ -155,3 +155,14 @@ ThreadGroup grp1 = new ThreadGroup("Group1");
 Thread(ThreadGroup group/*grp1*/,Runnable target,String name)
 ```
 과 같이 쓰레드를 생성할때 쓰레드그룹이 지정해 주어야한다.
+
+
+## 7. 데몬쓰레드
+쓰레드의 작업을 돋는 보조적인 쓰레드    
+일반쓰레드가 전부 종료되면 데몬쓰레드는 종료된다 일반쓰레드가 없으면 의미가 없기때문이다.      
+
+	void setDaemon(boolean on) 	: 쓰레드를 데몬 쓰레드로 또는 사용자쓰레드로 변경 매개변수 on의 값을 
+						true로 지정하면 데몬 쓰레드가 된다.
+	boolean isDaemon()		: 쓰레드가 데몬쓰레드인지 확인한다. 데몬쓰레드면 true반환.
+
+
