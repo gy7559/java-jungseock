@@ -145,4 +145,4 @@ ThreadGroup을 사용해서 생성할수 있다.
 |boolean parentOf(ThreadGroup g)|지정된 쓰레드 그룹의 상위 쓰레드그룹 인지 확인|
 |void setDaemon(boolean daemon)|쓰레드 그룹을 데몬 쓰레드그룹으로 설정/해제|
 |void setMaxPriority(int pri)|쓰레드 그룹의 최대우선순위를 설정|
-|int enumerate(Thread[] list),(Thread[] list, boolean recurse),(ThreadGroup[] list),(ThreadGroup[] list,boolean recurse)|쓰레드 그룹에 속한 쓰레드 또는 하위 쓰레드 그룹의 목록을 지정된 배열에 담고 그 개수를 반환,   두번째 매개변수인 recurse의 값을 true로 하면 쓰레드 그룹에 속한하위 쓰레드 그룹에 쓰레드 또는 쓰레드 그룹까지 배열에 담는다.|
+|int enumerate(Thread[] list),int enumerate(Thread[] list, boolean recurse),int enumerate(ThreadGroup[] list),int enumerate(ThreadGroup[] list,boolean recurse)|쓰레드 그룹에 속한 쓰레드 또는 하위 쓰레드 그룹의 목록을 지정된 배열에 담고 그 개수를 반환,   두번째 매개변수인 recurse의 값을 true로 하면 쓰레드 그룹에 속한하위 쓰레드 그룹에 쓰레드 또는 쓰레드 그룹까지 배열에 담는다.|
