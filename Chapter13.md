@@ -108,4 +108,41 @@ run()이 호출되고나면 start()는 사라진다.
 
 
 
+## 5. 쓰레드 우선순
 
+특정작업에서 중요도에 따라 우선순위를 다르게 두어 작업하는것      
+
+**우선순위 지정하는법**
+```java
+void setPriority(int newPriority)	// 쓰레드의 우선순위를 지정한 값으로 변경한다.
+int getPriority()			// 쓰레드의 우선순위를 반환
+
+public static final int MAX_PRIORITY = 10 // 최대우선순위
+public static final int MIN_PRIORITY = 1  // 최소우선순위
+public static final int NORM_PRIORITY = 5  // 보통우선순위
+```
+
+## 6. 쓰레드 그룹
+쓰레드를 모아두는 폴더처럼 서로 관련된 쓰레드를 묶어서 관리하는 것이다.      
+
+ThreadGroup을 사용해서 생성할수 있다.        
+주요 생성자와 메서드
+|생성자/메서드|내용|
+|---|---|
+|ThreadGroup(String name)|지정된 이름의 새로운 쓰레드 그룹을 생성|
+|ThreadGroup(ThreadGroup parent,String name)|지정된 쓰레드 그룹에 포함되는 새로운 쓰레드 그룹을생성|
+|int activeCount()|쓰레드 그룹에 포함된 활성상태에 있는 쓰레드의 수를 반환|
+|int activeGroupCount()|쓰레드그룹에 포함된 활성상태에 있는 쓰레드 그룹의 수를 반환|
+|void checkAccess()|현재 실행중인 쓰레드가 쓰레드 그룹을 변경할 권한이 있는지 체크. 권한이없으면 SecurityException을 발생시킨다.|
+|void destroy()|쓰레드 그룹과 하위 쓰레드 그룹까지 모두 삭제한다. 단, 쓰레드그룹이나 하위 쓰레드그룹이 비어있어야 한다.|
+|int getMaxPriority()|쓰레드 그룹의 최대 우선순위를 반환|
+|String getName()|쓰레드 그룹의 이름을 반환|
+|ThreadGroup getParent()|쓰레드 그룹에 상위 쓰레드 그룹을 반환|
+|void interrupt()|쓰레드 그룹에 속한 모든 쓰레드를 interrupt|
+|boolean isDaemon()|쓰레드 그룹이 데몬쓰레드 그룹인지 확인|
+|boolean isDestroyed|쓰레드 그룹이 삭제되었는지 확인|
+|void list()|쓰레드 그룹에 속한 쓰레드와 하위 쓰레드그룹에 대한 정보를 출력|
+|boolean parentOf(ThreadGroup g)|지정된 쓰레드 그룹의 상위 쓰레드그룹 인지 확인|
+|void setDaemon(boolean daemon)|쓰레드 그룹을 데몬 쓰레드그룹으로 설정/해제|
+|void setMaxPriority(int pri)|쓰레드 그룹의 최대우선순위를 설정|
+|int enumerate(Thread[] list),(Thread[] list, boolean recurse),(ThreadGroup[] list),(ThreadGroup[] list,boolean recurse)|쓰레드 그룹에 속한 쓰레드 또는 하위 쓰레드 그룹의 목록을 지정된 배열에 담고 그 개수를 반환,   두번째 매개변수인 recurse의 값을 true로 하면 쓰레드 그룹에 속한하위 쓰레드 그룹에 쓰레드 또는 쓰레드 그룹까지 배열에 담는다.|
