@@ -165,4 +165,32 @@ Thread(ThreadGroup group/*grp1*/,Runnable target,String name)
 						true로 지정하면 데몬 쓰레드가 된다.
 	boolean isDaemon()		: 쓰레드가 데몬쓰레드인지 확인한다. 데몬쓰레드면 true반환.
 
+```java
+Thread t= new Thread(new Thread());
+	t.setDaemon(true);
+```
+데몬쓰레드 설정
+
+
+## 8. 쓰레드의 실행제어
+스케줄링과 관련된 쓰레드 실행제어 메서드의 정리
+|메서드|설명|
+|---|---|
+|static void sleep(long millis)|지정된 시간동안 쓰레드를 일시정지시킴|
+|void join(long Millis)|지정된 시간동안 쓰레드가 실행되도록 한다. 지정된 시간이 지나거나 작업이 종료되면 join()을 호출한 쓰레드로 다시 돌아와 실행을 계속한다.|
+|void interrupt()|sleep이나 join에 의해 일시정지상태인 쓰래드를 깨워서 실행대기상태로 만든다.|
+|void stop()|쓰레드를 즉시 종료 시킨다.|
+|void suspend()|쓰레드를 일시정지 시킨다. resume()을 호출하면 다시 실행대기상태가 된다.|
+|void resume()| suspend()에의해 일시정지된 쓰레드를 실행대기상태로 만든다.|
+|static void yield()|실행중에 자신에게 주어진 실행시간을 다른 쓰레드에게 양보 하고 자신은 실행대기살태가 된다.|
+
+
+쓰레드의 상태
+|상태|설명|
+|---|---|
+|NEW|쓰레드가 생성되고 start()가 호출되지 않은 상태|
+|RUNNABLE|실행중 또는 실행가능한 상태|
+|BLOCKED|동기화블럭에 의해서 일시 정지된 상태|
+|WAITING,TIMED_WAITING|쓰레드의 작업이 종료되지는 않았지만 실행가능하지 않은 일시정지상태. TIMED_WAITING은 일시정지 시간이 지정된 경우|
+|TERMINATED|쓰레드 작업이 종료된 상태|
 
