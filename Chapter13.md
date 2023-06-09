@@ -168,8 +168,9 @@ Thread(ThreadGroup group/*grp1*/,Runnable target,String name)
 ```java
 Thread t= new Thread(new Thread());
 	t.setDaemon(true);
+	t.start();
 ```
-데몬쓰레드 설정
+데몬쓰레드로 설정해주는 setDaemon()은 start()전에 해주어야 한다.
 
 
 ## 8. 쓰레드의 실행제어
@@ -194,3 +195,55 @@ Thread t= new Thread(new Thread());
 |WAITING,TIMED_WAITING|쓰레드의 작업이 종료되지는 않았지만 실행가능하지 않은 일시정지상태. TIMED_WAITING은 일시정지 시간이 지정된 경우|
 |TERMINATED|쓰레드 작업이 종료된 상태|
 
+**** interrupt() interrupted()**
+쓰레드의 작업을 취소시킨다.
+사용 예로는 너무 큰 파일을 다운 받을 경우 다운로드를 받는 쓰레드를 취소시키는 경우 처럼       
+한작업에 리소스(자원)가 너무 많이 할애될경우등을 예로 들수있다.      
+하지만 강제취소가 아닌 취소요청을 보내는 것으로 쓰레드의 인스턴스 변수인 interrupted상태를 바꾸는것 뿐이다.       
+예시)
+```java
+Thread th = new Thread();
+th.start();
+...
+th.interrupt();// th의 interrupt()를 호출
+
+class MtThread extends Thread{
+	public void run(){
+		while(!interrupted()){//interrupted가 false일 경우에만 반복
+		}
+	}
+}
+```
+위 상황에서 interrupt()는 interrupted 상태를 false에서 true로 바꾸어 준다.
+
+	boolean isInterrupted() 쓰레드의 interrupted 상태를 반환
+	static boolean isInterrupted() 현재 쓰레드의 interrupted 상태를 반환후, false로 변경
+
+즉 interrupted 상태를 이용하여 특정 작업후에 interrupt()를 호출하는것으로 다른 쓰레드를 정지 시키는 등의 활용이 가능하다.       
+
+**쓰레드의 정지 혹은 종료**
+
+*stop()*      
+즉시 쓰레드를 종료한다.          
+
+*suspend()*       
+sleep()처럼 쓰레드를 멈추지만 시간이 지난다고 다시시작하지 않는다.        
+
+*resume()*        
+suspend()로 일시정지 시킨 쓰레드를 다시 실행 대기 상태로 만든다.       
+
+
+stop(),suspend()
+쓰레드제어가 간단해보이지만 위 두 메서드는 교착상태를 일으키기 쉬워 사용하는것이 권장되지는 않는다.     
+
+
+**다른 쓰레드에게 양보**
+
+yield()는 자신에게 주어진 실행시간을 다음 차례의 쓰레드에게 양보하는 메서드이다.        
+
+interrupt()를 사용하여 일시정지 되었을경우 사용하면 바로 다음 쓰레드로 넘어가 보다 효율적인 실행이 될것이다.      
+
+
+**다른 쓰레드의 작업을 기다림**
+join()메서드는 다른 쓰레드의 작업도중 다른 쓰레드들을 대기상태로 하여준다.        
+밀리 세컨드 단위로 숫자를 넣어 대기시간을 지정가능하고 지정하지않으면 선언된 쓰레드가 끝날때까지 기다린다.
