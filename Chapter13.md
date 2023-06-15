@@ -273,4 +273,6 @@ synchronized(객체의 참조변수){
 //....
 }
 ``` 
+### 2. wait과 notify
+
 
