@@ -39,3 +39,7 @@ LineNumberInputStream처럼 읽어온 라인번호를 카운트 하는 스트림
     InputStream > Reader
     OutputStream > Writer
 
+## 2. 바이트 기반 스트림
+
+### 1. InputStream과 OutputStream 
+
