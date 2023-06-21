@@ -34,3 +34,8 @@ Filter와 Bufferd,Data 의InputStream 과 OutputStream이 있고 그외의
 LineNumberInputStream처럼 읽어온 라인번호를 카운트 하는 스트림도 있다.      
 
 ### 5. 문자기반 스트림
+문자데이터를 입출력할때는 바이트기반 대신 문자기반 스트림을 사용한다.
+
+  InputStream > Reader
+  OutputStream > Writer
+
