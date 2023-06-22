@@ -39,7 +39,48 @@ LineNumberInputStream처럼 읽어온 라인번호를 카운트 하는 스트림
     InputStream > Reader
     OutputStream > Writer
 
-## 2. 바이트 기반 스트림
 
-### 1. InputStream과 OutputStream 
 
+## 2. 표준입출력과 File
+### 1. 표준입출력
+콘솔을 통한 데이터 입력과 출력을 의미한다.       
+자바에서는 3가지 를 기본 제공해준다.
+|표준입출력|용도|
+|---|---|
+|System.in|콘솔로부터 데이터를 입력받는데 사용|
+|System.out|콘솔로 데이터를 출력하는데 사용|
+|System.err|콘솔로 데이터를 출력하는데 사용|
+
+위 3가지가 기본제공 되기때문에 출력시 스트림 생성없이 사용할수 있었다.    
+
+in,out,err는 System클래스에 선언된 클래스 변수이며 버퍼를 이용하는 Bufferrd스트림이다.        
+
+### 2. 표준입출력 대상 변경
+setIn(),setOut(),setErr()를 사용하면       
+입출력을 콘솔이와에 다른 대상으로 변경하는것이 가능하다.
+
+
+### 3. RandomAccessFile
+RandomAccessFile은 DataInput인터페이스와 DataOutput인터페이스를 
+구현을 하여 입출력이 모두 가능하다.      
+
+
+### 4. File
+기본적이고 가장 많이 사용되는 입출력대상이다.     
+File클래스를 통하여 생성자와 메서드를 사용가능하다.     
+
+
+
+## 3. 직렬화
+### 1. 직렬화
+직렬화란 객체를 데이터 스트림으로 만드는것 이다.     
+
+### 2. 직렬화에 사용하는 스트림
+
+ObjectInputStream과 ObjectOutputStream이 있다.       
+두 스트림은 InputStream과 OutputStream을 직접 상속 받지만 기반스트림을 필요로하는 보조 스트림이다.    
+직렬화에는  ObjectInputStream을 역질렬화에는 ObjectOutputStream을 사용한다.
+
+### 3. 직렬화 가능한 클래스 만들기
+방법은 직렬화 하고자 하는 클래스가 java.io.Serializable인터페이스를     
+구현하도록 하면 된다.
