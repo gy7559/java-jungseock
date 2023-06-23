@@ -64,10 +64,7 @@ setIn(),setOut(),setErr()를 사용하면
 RandomAccessFile은 DataInput인터페이스와 DataOutput인터페이스를 
 구현을 하여 입출력이 모두 가능하다.      
 
-
-### 4. File
-기본적이고 가장 많이 사용되는 입출력대상이다.     
-File클래스를 통하여 생성자와 메서드를 사용가능하다.     
+    
 
 
 
