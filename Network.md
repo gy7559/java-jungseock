@@ -118,3 +118,18 @@ UpLink : 트래픽이 상향으로 나가는선
 **헷갈리지 말것**       
 Link-up : 연결됨       
 Link-down : 연결끊김        
+
+## 14. wireshark
+
+Packet이 Filter에서 Frame으로 내려갈때 혹은 반대로 올라갈때 통과되면 Bypass, 안되면 Drop      
+Sensor는 Filter부분에서 전부 통과시키며 감지만 하는 것(정보의 수집)      
+
+wireshark는 Sensor를 통해 얻은 데이터를 디코딩 한다.       
+
+
+
+## 15. inline, out of path
+
+인라인(브릿지) 구성은 모든 트래픽이 해당 보안 장비를 물리적으로 거쳐야만 목적지로 전송될 수 있도록 네트워크를 구성한 것       
+
+out of path는 특정 스위치를 지나가는 정보를 복사하여 읽을수만 있도록 한다. : Sensor
