@@ -93,3 +93,10 @@ Sokect과 ServerSocket클래스의 특징
 
   Socket : 프로세스간의 통신을 담당함. InputStream과 OutputStream을 가지고 있으며 이것을 가지고 프로세스간의 통신이 이루어진다.
   ServerSocket : 포트와 연결되어 외부의 연결요청을 기다림, 요청이 들어오면 Socket을 생성해서 통신이 이루어지도록함
+
+
+### 4. UDP소켓 프로그래밍
+
+DatagramSocket을 소켓으로 사용하며  데이터를DatagramPacket에 담아 전송한다.     
+DatagramPacket에는 수신할 호스트의 정보가 저장되어있다.(수신할 상대편의 주소를 적어둔 느낌이다.)     
+DatagramPacket을 전송하면 DatagramPacket에 지정된 DatagramSocket으로 도착한다.
