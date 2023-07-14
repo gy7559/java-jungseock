@@ -91,8 +91,7 @@ UDP
 
 Sokect과 ServerSocket클래스의 특징
 
-  Socket : 프로세스간의 통신을 담당함. InputStream과 OutputStream을 가지고 있으며 이것을 가지고 프로세스간의 통신이 이루어진다.
-  ServerSocket : 포트와 연결되어 외부의 연결요청을 기다림, 요청이 들어오면 Socket을 생성해서 통신이 이루어지도록함
+	  Socket : 프로세스간의 통신을 담당함. InputStream과 OutputStream을 가지고 있으며 이것을 가지고 프로세스간의 통신이 이루어진다.        	  ServerSocket : 포트와 연결되어 외부의 연결요청을 기다림, 요청이 들어오면 Socket을 생성해서 통신이 이루어지도록함
 
 
 ### 4. UDP소켓 프로그래밍
